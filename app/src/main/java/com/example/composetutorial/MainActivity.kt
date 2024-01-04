@@ -60,6 +60,7 @@ fun MessageCard(msg: Message) {
             modifier = Modifier
                 .size(40.dp)
                 .clip(CircleShape)
+                .border(1.5.dp, MaterialTheme.colorScheme.primary, CircleShape)
             )
 
         Spacer(modifier = Modifier.width(8.dp))
