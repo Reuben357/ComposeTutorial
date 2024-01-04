@@ -99,11 +99,32 @@ fun MessageCard(msg: Message) {
     }
 }
 
-
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(
+    name = "Light Mode",
+    showBackground = true,
+    showSystemUi = true
+)
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    showSystemUi = true,
+    name = "Dark Mode"
+)
 @Composable
 fun MessageCardPreview(){
-    MessageCard(
-        msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
-    )
+    ComposeTutorialTheme {
+        Surface {
+            MessageCard(
+                msg = Message("Lexi", "Hey, take a look at Jetpack Compose, it's great!")
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewConversation() {
+    ComposeTutorialTheme {
+        Conversation(SampleData.conversationSample)
+    }
 }
