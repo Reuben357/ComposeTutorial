@@ -30,16 +30,17 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeTutorialTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    MessageCard(
-                        Message(
-                            "Android", "Jetpack Compose"
-                    ))
-                }
+                Conversation(SampleData.conversationSample)
             }
+        }
+    }
+}
+
+@Composable
+fun Conversation(messages: List<Message>) {
+    LazyColumn {
+        items(messages){ message ->
+            MessageCard(message)
         }
     }
 }
