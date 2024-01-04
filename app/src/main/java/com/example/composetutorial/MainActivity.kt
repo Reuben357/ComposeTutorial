@@ -35,11 +35,27 @@ data class Message(
 )
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun MessageCard(msg: Message) {
+    Row (
+        modifier = Modifier.padding(all = 8.dp)
+    ){
+        Image(
+            painter = painterResource(id = R.drawable.compose_tutorial_img),
+            contentDescription = "Contact profile picture",
+            modifier = Modifier
+                .size(40.dp)
+                .clip(CircleShape)
+            )
+
+        Spacer(modifier = Modifier.width(8.dp))
+
+        Column {
+            Text(text = msg.author)
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(text = msg.body)
+        }
+
+    }
 }
 
 @Preview(showBackground = true)
